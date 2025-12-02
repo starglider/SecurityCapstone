@@ -21,6 +21,43 @@
             <h2>Sanitized Input</h2>
             <p><strong>Username:</strong> @Model.Username</p>
             <p><strong>Email:</strong> @Model.Email</p>
+            @if (Model.LoggedUser != null)
+            {
+                <p><strong>User:</strong> @Model.LoggedUser.ToString()</p>
+            }
+            else
+            {
+                <p>User not found.</p>
+            }
+
+            
         </div>
+ 
     }
-</div>
+    <div>
+        @if (Model.Users != null && Model.Users.Any())
+        {
+            <h3 class="mt-4">Users</h3>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var user in Model.Users)
+                    {
+                        <tr>
+                            <td>@user.Username</td>
+                            <td>@user.Email</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p>No users available.</p>
+        }
+    </div>
