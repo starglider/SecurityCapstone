@@ -33,7 +33,7 @@
                         @if (AuthService.IsAuthenticated(Context))
                         {
                             <li class="nav-item">
-                                <span class="nav-link text-dark">Hello, @AuthService.GetUsername(Context) (@AuthService.GetRole(Context))</span>
+                                <span class="nav-link text-dark">Hello, @Html.Encode(AuthService.GetUsername(Context)) (@Html.Encode(AuthService.GetRole(Context)))</span>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-page="/Logout">Logout</a>

@@ -22,7 +22,7 @@ namespace SecurityCapstone.Pages
         public IActionResult OnPost()
         {
             _authService.ClearAuthCookie(HttpContext);
-            return RedirectToPage("/Logout");
+            return RedirectToPage("/Index");
         }
     }
 }

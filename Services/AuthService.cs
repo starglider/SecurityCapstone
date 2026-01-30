@@ -27,6 +27,7 @@ namespace SecurityCapstone.Services
             var cookieOptions = new CookieOptions
             {
                 HttpOnly = true,
+                Secure = true,
                 Expires = DateTimeOffset.UtcNow.AddHours(1),
                 SameSite = SameSiteMode.Strict
             };
