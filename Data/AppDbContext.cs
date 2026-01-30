@@ -16,10 +16,12 @@ namespace SecurityCapstone.Data
         public int UserID { get; set; }
         public string Username { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
+        public string Password { get; set; } = string.Empty;
+        public string Role { get; set; } = string.Empty;
 
         public override string ToString()
         {
-            return $"UserID: {UserID}, Username: {Username}, Email: {Email}";
+            return $"UserID: {UserID}, Username: {Username}, Email: {Email}, Role: {Role}";
         }
     }
 
@@ -37,9 +39,9 @@ namespace SecurityCapstone.Data
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<User>().HasData(
-                new User { UserID = 1, Username = "alice", Email = "alice@example.com" },
-                new User { UserID = 2, Username = "bob", Email = "bob@example.com" },
-                new User { UserID = 3, Username = "charlie", Email = "charlie@example.com" }
+                new User { UserID = 1, Username = "alice", Email = "alice@example.com", Password = "password123", Role = "Admin" },
+                new User { UserID = 2, Username = "bob", Email = "bob@example.com", Password = "password456", Role = "User" },
+                new User { UserID = 3, Username = "charlie", Email = "charlie@example.com", Password = "password789", Role = "User" }
             );
         }
     }

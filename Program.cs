@@ -1,4 +1,5 @@
 using SecurityCapstone.Data;
+using SecurityCapstone.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseInMemoryDatabase("SecurityCapstoneDb"));
 
+builder.Services.AddScoped<AuthService>();
 
 // Add services to the container.
 builder.Services.AddRazorPages();
